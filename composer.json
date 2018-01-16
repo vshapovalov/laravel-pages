@@ -1,0 +1,27 @@
+{
+    "name": "vshapovalov/pages",
+    "description": "laravel pages routing",
+    "keywords": ["laravel", "pages", "routing"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vladimir Shapovalov",
+            "email": "shapovalov.v@gmail.com"
+        }
+    ],
+    "require": {
+
+    },
+    "autoload": {
+        "psr-4": {
+            "Vshapovalov\\Pages\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Vshapovalov\\Pages\\PagesServiceProvider"
+            ]
+        }
+    }
+}

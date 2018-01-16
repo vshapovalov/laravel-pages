@@ -1,0 +1,2 @@
+# Laravel pages routing
+
