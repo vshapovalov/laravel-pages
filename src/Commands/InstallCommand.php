@@ -16,14 +16,14 @@ class InstallCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'crud:install';
+    protected $signature = 'pages:install';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Install crud admin panel';
+    protected $description = 'Install pages routing';
 
     /**
      * Create a new command instance.
@@ -65,7 +65,7 @@ class InstallCommand extends Command
      */
     public function handle(Filesystem $filesystem)
     {
-	    $this->info('Publishing the crud assets, database and config files');
+	    $this->info('Publishing the pages assets, database and config files');
 	    $this->call('vendor:publish', ['--provider' => PagesServiceProvider::class]);
 
 	    $this->info('Migrating the database tables into your application');
@@ -78,27 +78,22 @@ class InstallCommand extends Command
 	    $process = new Process($composer.' dump-autoload');
 	    $process->setWorkingDirectory(base_path())->run();
 
-	    $this->info('Adding Voyager routes to routes/web.php');
+	    $this->info('Adding pages routes to routes/web.php');
 
 	    $routes_contents = $filesystem->get(base_path('routes/web.php'));
 
-	    if (false === strpos($routes_contents, 'Crud::routes()')) {
+	    if (false === strpos($routes_contents, 'Pages::routes()')) {
 		    $filesystem->append(
 			    base_path('routes/web.php'),
-			    "\n\nCrud::routes();\n"
+			    "\n\nPages::routes();\n"
 		    );
 	    }
 
 	    $this->info('Seeding data into the database');
 
-	    $this->seed('CrudFieldTypesTableSeeder');
-	    $this->seed('AdminSettingGroupsTableSeeder');
-	    $this->seed('MediaItemsTableSeeder');
+	    $this->seed('PageFormsTableSeeder');
 
-	    $this->info('Adding the storage symlink to public folder');
-	    $this->call('storage:link');
-
-	    $this->info('Crud successfully installed!');
+	    $this->info('Pages routing successfully installed!');
     }
 
 	/**

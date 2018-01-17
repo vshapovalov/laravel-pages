@@ -56,19 +56,16 @@ class PagesServiceProvider extends ServiceProvider
 		$assetsPath = '/vendor/vshapovalov/pages/assets';
 
 		$publishable = [
-			'crud_assets' => [
+			'pages_assets' => [
 				"{$publishablePath}/assets/" => public_path($assetsPath),
 			],
-			'crud_migrations' => [
+			'pages_migrations' => [
 				"{$publishablePath}/database/migrations/" => database_path('migrations'),
 			],
-			'crud_seeds' => [
+			'pages_seeds' => [
 				"{$publishablePath}/database/seeds/" => database_path('seeds'),
 			],
-			'crud_scripts' => [
-				"{$publishablePath}/database/scripts/" => database_path('scripts'),
-			],
-			'crud_config' => [
+			'pages_config' => [
 				"{$publishablePath}/config/pages.php" => config_path('pages.php'),
 			],
 		];
