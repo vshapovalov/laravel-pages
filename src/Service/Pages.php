@@ -130,7 +130,7 @@ class Pages {
 			}
 		}
 
-		$regexpUrl = '/^'.implode('\/', $regexpUrl).'$/i';
+		$regexpUrl = '/^'.implode('\/', $regexpUrl).'$/iu';
 
 		$regexpUrl = str_replace('\/(','(', $regexpUrl);
 
