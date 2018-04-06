@@ -5,7 +5,7 @@ namespace Vshapovalov\Pages;
 use Illuminate\Support\Facades\Cache;
 
 class Pages {
-
+	// v1.0.4
 	protected $filledRoutes;
 
 	function __construct() {
