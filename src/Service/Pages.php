@@ -108,7 +108,7 @@ class Pages {
 
 					$segment = $segmentData[0];
 					unset($segmentData[0]);
-					$pattern = implode('', $segmentData[1]);
+					$pattern = implode('|', $segmentData[1]);
 				}
 
 				if (ends_with($segment, '?')){
