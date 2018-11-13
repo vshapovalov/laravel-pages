@@ -13,7 +13,9 @@ class PagesController extends Controller
 	    if ($route = Pages::getRouteByUrl($url)) {
 
 	        return view(
-		        $route['page']->template,
+		        $route['page']->template
+			        ? $route['page']->template
+			        : 'default_page',
 		        [
 			        'page' => $route['page'],
 			        'params' => isset($route['info']['params']) ? $route['info']['params'] : []
